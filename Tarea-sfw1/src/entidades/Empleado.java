@@ -34,6 +34,10 @@ public abstract class Empleado {
 	 */
 	public abstract double calcularNomina();
 	
+	public String getIdentificador() {
+		return identificador;
+	}
+	
 	public double getSalario() {
 		return salario;
 	}

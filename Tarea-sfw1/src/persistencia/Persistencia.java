@@ -15,14 +15,14 @@ public interface Persistencia {
 	 * @param empleado el empleado que se desea eliminar de la persistencia
 	 * @version 1.0
 	 */
-	public void añadirEmpleado(Empleado empleado);
+	public boolean añadirEmpleado(Empleado empleado);
 	
 	/**
 	 * metodo que permite eliminar un empleado de la persistencia
 	 * @param empleado el empleado que se desea eliminar de la persistencia
 	 * @version 1.0
 	 */
-	public void eliminarEmpleado(Empleado empleado);
+	public boolean eliminarEmpleado(Empleado empleado);
 	
 	/**
 	 * metodo que permite buscar un empleado en la persitencia
@@ -32,4 +32,9 @@ public interface Persistencia {
 	 */
 	public Empleado obtenerEmpleado(String identificadorEmpleado);
 	
+	/**
+	 * metodo que permite obtener el total de empleados de la compañia
+	 * @return el numero total de empleados
+	 */
+	public int obtenerTotalEmpleados();
 }

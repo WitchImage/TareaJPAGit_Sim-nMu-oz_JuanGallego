@@ -6,26 +6,29 @@ import entidades.Empleado;
 /**
  * clase lista que permite implementar la persistencia en memoria 
  * @author JUANDIEGO
- * @version 1.0 17/08/2020
+ * @version 1.5 19/08/2020
  */
 public class ListaEmpleados implements Persistencia {
 	
 	private List<Empleado> empleados;
 
 	@Override
-	public void añadirEmpleado(Empleado empleado) {
+	public boolean añadirEmpleado(Empleado empleado) {
 		if (empleado!=null) {
 			this.empleados.add(empleado);
+			return true;
 		}
-		
+		return false;
 	}
 
 	@Override
-	public void eliminarEmpleado(Empleado empleado) {
+	public boolean eliminarEmpleado(Empleado empleado) {
 		Empleado empleadoBuscado=obtenerEmpleado(empleado.getIdentificador());
 		if(empleadoBuscado!=null) {
 			this.empleados.remove(empleadoBuscado);
+			return true;
 		}
+		return false;
 	}
 
 	@Override
@@ -38,6 +41,11 @@ public class ListaEmpleados implements Persistencia {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public int obtenerTotalEmpleados() {
+		return this.empleados.size();
 	}
 	
 	

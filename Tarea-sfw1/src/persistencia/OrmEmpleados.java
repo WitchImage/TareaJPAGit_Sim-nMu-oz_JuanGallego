@@ -3,14 +3,17 @@ package persistencia;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import entidades.Empleado;
 
 /**
  * clase que permite la implementacion de la persistencia en la base de datos por medio de ORM
  * @author JUANDIEGO
- * @version 1.0 17/08/2020
+ * @version 1.5 19/08/2020
  */
+
+
 
 public class OrmEmpleados implements Persistencia {
 	
@@ -23,33 +26,34 @@ public class OrmEmpleados implements Persistencia {
 	}
 
 	@Override
-	public void añadirEmpleado(Empleado empleado) {
+	public boolean añadirEmpleado(Empleado empleado) {
 		
 		if(empleado!=null) {
 			try {
 				gestorBD.getTransaction().begin();
 				gestorBD.persist(empleado);
 				gestorBD.getTransaction().commit();
-				
+				return true;
 			}catch(Exception er) {
-				
+				return false;
 			}			
 		}
+		return false;
 
 		
 	}
 
 	@Override
-	public void eliminarEmpleado(Empleado empleado) {
+	public boolean eliminarEmpleado(Empleado empleado) {
 		
 		Empleado empleadoBuscado=obtenerEmpleado(empleado.getIdentificador());
 		if(empleadoBuscado!=null) {
 			try {
 				gestorBD.remove(empleado);
 				gestorBD.getTransaction().commit();
-				
+				return true;
 			}catch(Exception er) {
-				
+				return false;
 			}
 		}
 		
@@ -64,6 +68,16 @@ public class OrmEmpleados implements Persistencia {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public int obtenerTotalEmpleados() {
+		try{
+            Query result = gestorBD.createQuery("Select identificador from empleadosr");
+            return result.getMaxResults();
+        }finally{
+            gestorBD.close();
+        }
 	}
 
 }

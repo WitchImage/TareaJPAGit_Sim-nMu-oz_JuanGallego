@@ -56,6 +56,7 @@ public class OrmEmpleados implements Persistencia {
 				return false;
 			}
 		}
+		return false;
 		
 	}
 
@@ -73,7 +74,7 @@ public class OrmEmpleados implements Persistencia {
 	@Override
 	public int obtenerTotalEmpleados() {
 		try{
-            Query result = gestorBD.createQuery("Select identificador from empleadosr");
+            Query result = gestorBD.createQuery("Select identificador from empleados");
             return result.getMaxResults();
         }finally{
             gestorBD.close();

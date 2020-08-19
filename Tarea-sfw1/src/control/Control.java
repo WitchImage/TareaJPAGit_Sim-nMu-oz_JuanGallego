@@ -9,7 +9,7 @@ import persistencia.Persistencia;
  * clase encargada del control del programa
  * @author Simón Felipe Muñoz Osorio
  * @author Juan Diego Gallego Giraldo
- * @version 2.0
+ * @version 2.1
  *
  */
 public class Control {
@@ -38,13 +38,11 @@ public class Control {
 			if(empleadoBuscado==null) {
 				Empleado nuevoEmpleado=Fabrica.construirEmpleado(identificadorBusqueda,nombre,salario, tipo);
 				empleados.añadirEmpleado(nuevoEmpleado);
-			}else
-			{
-				return false;
-			}
-				
+				return true;
+			}	
 			
 		}
+		return false;
 		
 	}
 	

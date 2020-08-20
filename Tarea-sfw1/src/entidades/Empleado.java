@@ -40,6 +40,22 @@ public abstract class Empleado {
 		return identificador;
 	}
 	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
+	}
+
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+
 	public double getSalario() {
 		return salario;
 	}

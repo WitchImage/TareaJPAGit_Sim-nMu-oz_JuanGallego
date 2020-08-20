@@ -41,5 +41,21 @@ public class EmpleadoHora extends Empleado {
 	public double calcularNomina() {
 		return getSalario()*horasTrabajadasSemana;
 	}
+
+	public int getHorasTrabajadasSemana() {
+		return horasTrabajadasSemana;
+	}
+
+	public void setHorasTrabajadasSemana(int horasTrabajadasSemana) {
+		this.horasTrabajadasSemana = horasTrabajadasSemana;
+	}
+
+	public int getHorasTrabajadasTotales() {
+		return horasTrabajadasTotales;
+	}
+
+	public void setHorasTrabajadasTotales(int horasTrabajadasTotales) {
+		this.horasTrabajadasTotales = horasTrabajadasTotales;
+	}
 	
 }

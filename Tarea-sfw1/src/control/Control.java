@@ -43,7 +43,18 @@ public class Control {
 			
 		}
 		return false;
-		
+	}
+	
+	/**
+	 * Calcula la nomina semanal que debe pagar la empresa a todos sus empleados
+	 * @return la nomina semanal
+	 */
+	public double calcularNominaSemanal() {
+		if(empleados.obtenerTotalEmpleados() == 0) {
+			return 0;
+		} else {
+			return 0;
+		}
 	}
 	
 	/**

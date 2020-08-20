@@ -55,6 +55,22 @@ public class EmpleadoComision extends Empleado {
 	public double calcularNomina() {
 		return getSalario()+(obtenerVentasSemana()*0.05);
 	}
+
+	public List<Double> getVentasSemana() {
+		return ventasSemana;
+	}
+
+	public void setVentasSemana(List<Double> ventasSemana) {
+		this.ventasSemana = ventasSemana;
+	}
+
+	public List<Double> getVentasTotales() {
+		return ventasTotales;
+	}
+
+	public void setVentasTotales(List<Double> ventasTotales) {
+		this.ventasTotales = ventasTotales;
+	}
 	
 	
 }

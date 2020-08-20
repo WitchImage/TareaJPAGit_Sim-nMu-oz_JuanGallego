@@ -1,11 +1,14 @@
 package persistencia;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import entidades.Empleado;
+
 
 /**
  * clase que permite la implementacion de la persistencia en la base de datos por medio de ORM
@@ -79,6 +82,24 @@ public class OrmEmpleados implements Persistencia {
         }finally{
             gestorBD.close();
         }
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Empleado> obtenerEmpleados() {
+		Query query = gestorBD.createQuery("select e from Empleado e");
+		List<Empleado> empleados = query.getResultList();
+		return empleados;
+	}
+	
+	
+	
+	/**
+	 * Cierra el EntitiyManager cuando se vaya a destruir este objeto
+	 */
+	@Override
+	protected void finalize() {
+		gestorBD.close();
 	}
 
 }

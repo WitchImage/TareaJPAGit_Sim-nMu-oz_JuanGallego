@@ -1,5 +1,7 @@
 package persistencia;
 
+import java.util.List;
+
 import entidades.Empleado;
 
 /**
@@ -37,4 +39,10 @@ public interface Persistencia {
 	 * @return el numero total de empleados
 	 */
 	public int obtenerTotalEmpleados();
+	
+	/**
+	 * metodo que permite obtener a todos los trabajadores de la compañia
+	 * @return  l lista de empleados que pertenece a la compañia
+	 */
+	public List<Empleado> obtenerEmpleados();
 }

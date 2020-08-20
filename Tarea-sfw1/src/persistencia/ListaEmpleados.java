@@ -47,6 +47,11 @@ public class ListaEmpleados implements Persistencia {
 	public int obtenerTotalEmpleados() {
 		return this.empleados.size();
 	}
+
+	@Override
+	public List<Empleado> obtenerEmpleados() {
+		return this.empleados;
+	}
 	
 	
 

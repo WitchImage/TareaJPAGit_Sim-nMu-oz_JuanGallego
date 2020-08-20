@@ -65,7 +65,7 @@ public class OrmEmpleados implements Persistencia {
 
 	@Override
 	public Empleado obtenerEmpleado(String identificadorEmpleado) {
-		if(!identificadorEmpleado.isBlank()) {
+		if(!identificadorEmpleado.isEmpty()) {
 			Empleado empleadoBuscado = gestorBD.find(Empleado.class, identificadorEmpleado);
 			if (empleadoBuscado!=null) {
 				return empleadoBuscado;

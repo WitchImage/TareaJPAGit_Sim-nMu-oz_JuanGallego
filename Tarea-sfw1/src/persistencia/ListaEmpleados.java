@@ -33,7 +33,7 @@ public class ListaEmpleados implements Persistencia {
 
 	@Override
 	public Empleado obtenerEmpleado(String identificadorEmpleado) {
-		if(!identificadorEmpleado.isBlank()) {
+		if(!identificadorEmpleado.isEmpty()) {
 			for(Empleado e: this.empleados) {
 				if(identificadorEmpleado.equalsIgnoreCase(e.getIdentificador())) {
 					return e;

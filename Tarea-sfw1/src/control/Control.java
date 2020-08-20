@@ -1,5 +1,9 @@
 package control;
 
+
+
+import java.util.List;
+
 import entidades.Empleado;
 import entidades.Fabrica;
 import persistencia.ListaEmpleados;
@@ -53,7 +57,12 @@ public class Control {
 		if(empleados.obtenerTotalEmpleados() == 0) {
 			return 0;
 		} else {
-			return 0;
+			 List<Empleado> totalEmpleados=empleados.obtenerEmpleados();
+			 double total=0;
+			 for(Empleado e :totalEmpleados) {
+				 total+=e.calcularNomina();
+			 }
+			 return total;
 		}
 	}
 	

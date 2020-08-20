@@ -31,21 +31,16 @@ public class Control {
 	 * @param tipo el tipo de contrato que tiene el empleado
 	 * @return si se logro o no ingresar el empleado
 	 */
-	public boolean añadirEmpleado(String nombre,double salario,char tipo) {
+	public boolean añadirEmpleado(String identificador, String nombre,double salario,char tipo) {
 		if(salario<1) {
 			return false;
 		}
-		int nuevoIdentificador=generaNuevoIdentificador();
-		if (nuevoIdentificador>0) {
-			String identificadorBusqueda=Integer.toString(nuevoIdentificador);
-			Empleado empleadoBuscado=empleados.obtenerEmpleado(identificadorBusqueda);
-			if(empleadoBuscado==null) {
-				Empleado nuevoEmpleado=Fabrica.construirEmpleado(identificadorBusqueda,nombre,salario, tipo);
-				empleados.añadirEmpleado(nuevoEmpleado);
-				return true;
-			}	
-			
-		}
+		Empleado empleadoBuscado=empleados.obtenerEmpleado(identificador);
+		if(empleadoBuscado==null) {
+			Empleado nuevoEmpleado=Fabrica.construirEmpleado(identificador, nombre, salario, tipo);
+			empleados.añadirEmpleado(nuevoEmpleado);
+			return true;
+		}	
 		return false;
 	}
 	
@@ -74,21 +69,5 @@ public class Control {
 	public Empleado buscarEmpleado(String identificador) {
 		return empleados.obtenerEmpleado(identificador);
 	}
-	
-	
-	public int generaNuevoIdentificador() {
-		int numeroBuscado;
-		numeroBuscado=this.empleados.obtenerTotalEmpleados();
-		if (numeroBuscado>0) {
-			return numeroBuscado+1;
-		}else {
-			return 0;
-		}
-		
-	}
-	
-	
-	
-	
 	
 }

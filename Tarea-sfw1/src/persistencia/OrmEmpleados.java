@@ -24,7 +24,7 @@ public class OrmEmpleados implements Persistencia {
 	
 	public OrmEmpleados() {
 		EntityManagerFactory fabrica= 
-				Persistence.createEntityManagerFactory("EmpleadosBD");
+				Persistence.createEntityManagerFactory("empleadosBD");
 		gestorBD= fabrica.createEntityManager();
 	}
 
@@ -77,10 +77,10 @@ public class OrmEmpleados implements Persistencia {
 	@Override
 	public int obtenerTotalEmpleados() {
 		try{
-            Query result = gestorBD.createQuery("Select identificador from empleados");
+            Query result = gestorBD.createQuery("select e from Empleado e");
             return result.getMaxResults();
-        }finally{
-            gestorBD.close();
+        }catch(Exception e) {
+        	return -1;
         }
 	}
 

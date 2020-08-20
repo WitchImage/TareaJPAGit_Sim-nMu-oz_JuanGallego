@@ -22,6 +22,8 @@ public abstract class Empleado {
 	private String nombre;
 	private double salario;
 	
+	public Empleado() {}
+	
 	public Empleado(String identificador, String nombre, double salario) {
 		this.identificador = identificador;
 		this.nombre = nombre;

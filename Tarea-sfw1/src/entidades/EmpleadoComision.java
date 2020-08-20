@@ -18,6 +18,8 @@ public class EmpleadoComision extends Empleado {
 	private List<Double> ventasSemana;
 	private List<Double> ventasTotales;
 	
+	public EmpleadoComision() {}
+	
 	public EmpleadoComision(String identificador, String nombre, double salario) {
 		super(identificador, nombre, salario);
 		ventasSemana = new ArrayList<Double>();

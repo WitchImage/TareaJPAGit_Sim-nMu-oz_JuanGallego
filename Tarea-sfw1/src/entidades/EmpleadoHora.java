@@ -15,6 +15,8 @@ public class EmpleadoHora extends Empleado {
 	private int horasTrabajadasSemana;
 	private int horasTrabajadasTotales;
 	
+	public EmpleadoHora() {}
+	
 	public EmpleadoHora(String identificador, String nombre, double salario) {
 		super(identificador, nombre, salario);
 		horasTrabajadasSemana = 0;

@@ -7,6 +7,7 @@ import java.util.List;
 import entidades.Empleado;
 import entidades.Fabrica;
 import persistencia.ListaEmpleados;
+import persistencia.OrmEmpleados;
 import persistencia.Persistencia;
 
 /**
@@ -21,7 +22,7 @@ public class Control {
 	private Persistencia empleados;
 	
 	public Control() {
-		empleados=new ListaEmpleados();
+		empleados=new OrmEmpleados();
 	}
 	
 	/***
@@ -50,7 +51,7 @@ public class Control {
 	 */
 	public double calcularNominaSemanal() {
 		if(empleados.obtenerTotalEmpleados() == 0) {
-			return 0;
+			return 0.0;
 		} else {
 			 List<Empleado> totalEmpleados=empleados.obtenerEmpleados();
 			 double total=0;

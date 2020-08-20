@@ -71,4 +71,18 @@ public class Control {
 		return empleados.obtenerEmpleado(identificador);
 	}
 	
+	/**
+	 * Elimina un empleado por su identificador
+	 * @param identificador el identificador del empleado a eliminar
+	 * @return true si la operación se realizó con éxito
+	 */
+	public boolean eliminarEmpleado(String identificador) {
+		Empleado empleadoAEliminar = buscarEmpleado(identificador);
+		if(empleadoAEliminar == null) {
+			return false;
+		} else {
+			return empleados.eliminarEmpleado(empleadoAEliminar);
+		}
+	}
+	
 }

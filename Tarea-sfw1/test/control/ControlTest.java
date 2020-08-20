@@ -20,6 +20,29 @@ class ControlTest {
 		assertEquals(0.0, control.calcularNominaSemanal());
 	}
 	
+	/**
+	 * Agrega un empleado de cada tipo y comprueba su correcta inserción
+	 */
+	@Test
+	void agregarEmpleadoCadaTipo() {
+		Control control = new Control();
+		control.añadirEmpleado("abc", "Simon", 1000, 'a');
+		control.añadirEmpleado("qwe", "Diego", 700, 'c');
+		control.añadirEmpleado("zxc", "Sandra", 100, 'h');
+		assertNotEquals(null, control.buscarEmpleado("abc"));
+		assertNotEquals(null, control.buscarEmpleado("qwe"));
+		assertNotEquals(null, control.buscarEmpleado("zxc"));
+	}
 	
-
+	/**
+	 * Calcula la nomina de los tres empleados añadidos en el anterior test
+	 */
+	@Test
+	void calcularNominaTresEmpleados() {
+		Control control = new Control();
+		control.añadirEmpleado("abc", "Simon", 1000, 'a');
+		control.añadirEmpleado("qwe", "Diego", 700, 'c');
+		control.añadirEmpleado("zxc", "Sandra", 100, 'h');
+		assertEquals(1700.0, control.calcularNominaSemanal());
+	}
 }

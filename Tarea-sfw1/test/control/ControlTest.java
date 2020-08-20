@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 /**
- * 
+ * Pruebas especificadas en el documento pdf
  * @author Simón Felipe Muñoz Osorio
  *
  */
@@ -40,9 +40,6 @@ class ControlTest {
 	@Test
 	void calcularNominaTresEmpleados() {
 		Control control = new Control();
-		control.añadirEmpleado("abc", "Simon", 1000, 'a');
-		control.añadirEmpleado("qwe", "Diego", 700, 'c');
-		control.añadirEmpleado("zxc", "Sandra", 100, 'h');
 		assertEquals(1700.0, control.calcularNominaSemanal());
 	}
 }
